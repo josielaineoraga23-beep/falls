@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambugahay Falls - Contact</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+/* ================= BACKGROUND ================= */
+body{
+    background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
+    url("https://upload.wikimedia.org/wikipedia/commons/3/3c/Cambugahay_Falls_Siquijor.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:#fff;
+}
+
+/* ================= HEADER ================= */
+header{
+    width:100%;
+    height:70px;
+    background:rgba(0,0,0,0.45);
+    padding:0 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    z-index:1000;
+
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+/* LOGO */
+.logo{
+    font-size:22px;
+    font-weight:700;
+    background:linear-gradient(90deg,#00ffd5,#00aaff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* NAV */
+nav{
+    display:flex;
+    align-items:center;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin:0 6px;
+    padding:7px 14px;
+    border-radius:20px;
+    font-size:14px;
+    transition:0.3s;
+}
+
+/* KEEP HOVER SAME (NO CHANGE) */
+nav a:hover{
+    background:rgba(0,255,213,0.15);
+    box-shadow:0 0 12px rgba(0,255,213,0.4);
+}
+
+/* ACTIVE PAGE */
+.active{
+    background:rgba(0,255,213,0.15);
+}
+
+/* ================= HAMBURGER ================= */
+.menu-btn{
+    display:none;
+    font-size:32px;
+    cursor:pointer;
+    color:#fff;
+    text-shadow:0 2px 6px rgba(0,0,0,0.8);
+}
+
+/* ================= HERO ================= */
+.hero{
+    margin-top:100px;
+    text-align:center;
+    padding:30px;
+}
+
+.hero h1{
+    font-size:42px;
+    font-weight:700;
+    background:linear-gradient(90deg,#fff,#00ffd5);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:#ddd;
+    font-size:15px;
+}
+
+/* ================= MAIN GRID ================= */
+.container{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap:20px;
+    padding:20px;
+}
+
+/* LEFT CARD */
+.hero-card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.4);
+    transition:0.3s;
+}
+
+.hero-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 45px rgba(0,255,213,0.15);
+}
+
+.hero-card h2{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.hero-card p{
+    font-size:14px;
+    line-height:1.8;
+    color:#ddd;
+}
+
+/* QUOTE */
+.quote{
+    margin-top:15px;
+    background:rgba(0,0,0,0.3);
+    padding:12px;
+    border-radius:12px;
+    font-size:13px;
+    border-left:3px solid #00ffd5;
+    color:#eee;
+}
+
+/* BADGE */
+.badge{
+    display:inline-block;
+    margin-top:15px;
+    padding:6px 12px;
+    border-radius:25px;
+    font-size:12px;
+    background:linear-gradient(90deg,#00ffd5,#00aaff);
+    color:#000;
+    font-weight:600;
+}
+
+/* RIGHT STACK */
+.stack{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:18px;
+    padding:18px;
+    transition:0.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 35px rgba(0,255,213,0.15);
+}
+
+.card h3{
+    font-size:15px;
+    margin-bottom:6px;
+}
+
+.card p{
+    font-size:13px;
+    color:#ddd;
+    line-height:1.6;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    text-align:center;
+    padding:15px;
+    background:rgba(0,0,0,0.85);
+    color:#fff;
+    font-size:13px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    margin-top:30px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+    .container{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:768px){
+
+    header{
+        padding:0 20px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav{
+        position:absolute;
+        top:70px;
+        right:0;
+        width:240px;
+
+        /* 🔥 FORCE PURE BLACK */
+        background-color:#000 !important;
+        background:#000 !important;
+        backdrop-filter:none !important;
+
+        display:none;
+        flex-direction:column;
+        padding:15px;
+
+        border-radius:0 0 0 15px;
+        border:1px solid rgba(255,255,255,0.08);
+        box-shadow:0 10px 25px rgba(0,0,0,0.9);
+    }
+
+    nav.active{
+        display:flex;
+    }
+
+    nav a{
+        margin:6px 0;
+        width:100%;
+        text-align:left;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Cambugahay Falls</div>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <nav id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="img.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="location.html">Location</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>Contact Overview</h1>
+    <p>A simple guide to the destination experience</p>
+</div>
+
+<div class="container">
+
+    <div class="hero-card">
+        <h2>🌊 Cambugahay Falls</h2>
+
+        <p>
+            A multi-tiered natural waterfall hidden within the green heart of Siquijor.
+            Known for its turquoise waters, rope swings, and peaceful jungle atmosphere,
+            it offers a refreshing escape for travelers seeking nature and adventure.
+        </p>
+
+        <div class="quote">
+            “Not just a place — but a feeling of calm hidden inside the island.”
+        </div>
+
+        <span class="badge">Nature Attraction</span>
+    </div>
+
+    <div class="stack">
+
+        <div class="card">
+            <h3>📍 Hidden Path Location</h3>
+            <p>Reached through scenic village roads and jungle trails in Siquijor.</p>
+        </div>
+
+        <div class="card">
+            <h3>🚶 Travel Experience</h3>
+            <p>Feels like entering a hidden natural paradise surrounded by greenery.</p>
+        </div>
+
+        <div class="card">
+            <h3>🌿 Atmosphere</h3>
+            <p>Cool, refreshing, and peaceful — perfect for relaxation and photos.</p>
+        </div>
+
+        <div class="card">
+            <h3>💡 Visitor Tip</h3>
+            <p>Visit early morning for the best lighting and fewer tourists.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Cambugahay Falls | All Rights Reserved
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navMenu").classList.toggle("active");
+}
+
+// auto close menu when clicking link
+document.querySelectorAll("#navMenu a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        document.getElementById("navMenu").classList.remove("active");
+    });
+});
+</script>
+
+</body>
+</html>

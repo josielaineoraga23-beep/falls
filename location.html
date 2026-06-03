@@ -1,0 +1,352 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambugahay Falls - Location</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+/* ================= BACKGROUND ================= */
+body{
+    background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
+    url("https://upload.wikimedia.org/wikipedia/commons/3/3c/Cambugahay_Falls_Siquijor.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:#fff;
+}
+
+/* ================= HEADER ================= */
+header{
+    width:100%;
+    height:70px;
+    background:rgba(0,0,0,0.45);
+    padding:0 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    z-index:1000;
+
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:700;
+    background:linear-gradient(90deg,#00ffd5,#00aaff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* NAVIGATION */
+nav{
+    display:flex;
+    align-items:center;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin:0 6px;
+    padding:7px 14px;
+    border-radius:20px;
+    font-size:14px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:rgba(0,255,213,0.15);
+    box-shadow:0 0 12px rgba(0,255,213,0.4);
+}
+
+.active{
+    background:rgba(0,255,213,0.15);
+}
+
+/* HAMBURGER */
+.menu-btn{
+    display:none;
+    font-size:32px;
+    cursor:pointer;
+    color:#fff;
+}
+
+/* ================= HERO ================= */
+.hero{
+    margin-top:100px;
+    text-align:center;
+    padding:30px 20px;
+}
+
+.hero h1{
+    font-size:42px;
+    font-weight:700;
+    background:linear-gradient(90deg,#fff,#00ffd5);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:#ddd;
+    font-size:15px;
+}
+
+/* ================= CONTAINER ================= */
+.container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:20px;
+    padding:20px;
+}
+
+/* ================= MAP BOX ================= */
+.map-box{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:20px;
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.4);
+    position:relative;
+    transition:0.3s;
+}
+
+.map-box:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 45px rgba(0,255,213,0.15);
+}
+
+.map-box iframe{
+    width:100%;
+    height:420px;
+    border:none;
+}
+
+/* FLOAT CARD */
+.float-card{
+    position:absolute;
+    bottom:15px;
+    left:15px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    color:#fff;
+    padding:12px 15px;
+    border-radius:12px;
+    font-size:13px;
+    border-left:3px solid #00ffd5;
+}
+
+/* ================= INFO PANEL ================= */
+.info-panel{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:18px;
+    padding:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 35px rgba(0,255,213,0.15);
+}
+
+.card h3{
+    margin-bottom:8px;
+}
+
+.card p{
+    font-size:13px;
+    line-height:1.6;
+    color:#ddd;
+}
+
+.badge{
+    display:inline-block;
+    background:linear-gradient(90deg,#00ffd5,#00aaff);
+    color:#000;
+    padding:6px 12px;
+    border-radius:25px;
+    font-size:12px;
+    margin-top:10px;
+    font-weight:600;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    text-align:center;
+    padding:15px;
+    background:rgba(0,0,0,0.85);
+    color:#fff;
+    font-size:13px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    margin-top:30px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+
+    header{
+        padding:0 20px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav{
+        position:absolute;
+        top:70px;
+        right:0;
+        width:230px;
+
+        background:rgba(0,0,0,0.95);
+        backdrop-filter:blur(15px);
+
+        display:none;
+        flex-direction:column;
+        padding:15px;
+
+        border-radius:0 0 0 15px;
+        border-left:1px solid rgba(255,255,255,0.1);
+        border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    nav.show{
+        display:flex;
+    }
+
+    nav a{
+        display:block;
+        margin:6px 0;
+        width:100%;
+        text-align:left;
+    }
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .map-box iframe{
+        height:350px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">Cambugahay Falls</div>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <nav id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="img.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="location.html" class="active">Location</a>
+    </nav>
+
+</header>
+
+<div class="hero">
+    <h1>Find Cambugahay Falls</h1>
+    <p>Hidden paradise in Siquijor, Philippines</p>
+</div>
+
+<div class="container">
+
+    <div class="map-box">
+
+        <iframe
+        src="https://maps.google.com/maps?q=Cambugahay%20Falls%20Siquijor&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        allowfullscreen
+        loading="lazy">
+        </iframe>
+
+        <div class="float-card">
+            📍 Lazi, Siquijor, Philippines
+            <br>
+            ✨ Famous natural 3-tier waterfall paradise
+        </div>
+
+    </div>
+
+    <div class="info-panel">
+
+        <div class="card">
+            <h3>📍 Exact Location</h3>
+            <p>
+                Cambugahay Falls is located in Lazi, Siquijor Island,
+                Philippines. One of the most visited natural attractions
+                in the province.
+            </p>
+            <span class="badge">Open for Tourists</span>
+        </div>
+
+        <div class="card">
+            <h3>🚗 How to Get There</h3>
+            <p>
+                From Siquijor Port, ride a tricycle or habal-habal going
+                to Lazi town. Travel time is around 30–45 minutes.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>💡 Travel Tip</h3>
+            <p>
+                Visit early in the morning for fewer crowds and
+                crystal-clear turquoise water perfect for swimming,
+                photography, and rope swinging.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Cambugahay Falls | All Rights Reserved
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navMenu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
+

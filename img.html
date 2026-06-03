@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cambugahay Falls Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
+    url("https://upload.wikimedia.org/wikipedia/commons/3/3c/Cambugahay_Falls_Siquijor.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:white;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:75px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 50px;
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(15px);
+    z-index:999;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    background:linear-gradient(90deg,#00ffd5,#00aaff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav{
+    display:flex;
+    gap:10px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:10px 16px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+nav a:hover,
+.active{
+    background:rgba(0,255,213,.15);
+    box-shadow:0 0 15px rgba(0,255,213,.3);
+}
+
+.menu-btn{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:55vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
+    padding:120px 20px 50px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:15px;
+    text-shadow:0 10px 30px rgba(0,0,0,.6);
+}
+
+.hero p{
+    max-width:700px;
+    color:#ddd;
+    line-height:1.8;
+}
+
+.hero button{
+    margin-top:25px;
+    padding:14px 30px;
+    border:none;
+    border-radius:40px;
+    font-weight:600;
+    cursor:pointer;
+    background:linear-gradient(90deg,#00ffd5,#00aaff);
+    transition:.3s;
+}
+
+.hero button:hover{
+    transform:translateY(-4px);
+}
+
+/* ================= GALLERY ================= */
+
+.gallery-section{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    padding-bottom:80px;
+}
+
+.gallery-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.gallery-title h2{
+    font-size:2.5rem;
+}
+
+.gallery-title p{
+    color:#ccc;
+}
+
+.gallery{
+    columns:4 250px;
+    column-gap:18px;
+}
+
+.card{
+    position:relative;
+    margin-bottom:18px;
+    overflow:hidden;
+    border-radius:20px;
+    cursor:pointer;
+
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.card img{
+    width:100%;
+    display:block;
+    transition:.5s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+.overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:15px;
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,.9)
+    );
+}
+
+.overlay h3{
+    font-size:16px;
+}
+
+/* ================= LIGHTBOX ================= */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.95);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.lightbox img{
+    width:90%;
+    max-width:1000px;
+    max-height:90vh;
+    border-radius:20px;
+}
+
+.close{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:40px;
+    cursor:pointer;
+}
+
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:45px;
+    cursor:pointer;
+    padding:10px;
+}
+
+.prev{
+    left:20px;
+}
+
+.next{
+    right:20px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:rgba(0,0,0,.8);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+header{
+    padding:0 20px;
+}
+
+.menu-btn{
+    display:block;
+}
+
+nav{
+    display:none;
+    position:absolute;
+    top:75px;
+    right:0;
+    width:230px;
+    background:rgba(0,0,0,.95);
+    flex-direction:column;
+    padding:15px;
+}
+
+nav.show{
+    display:flex;
+}
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.gallery{
+    columns:2 150px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<div class="logo">
+Cambugahay Falls
+</div>
+
+<div class="menu-btn" onclick="toggleMenu()">
+☰
+</div>
+
+<nav id="menu">
+
+<a href="index.html">Home</a>
+<a href="img.html" class="active">Gallery</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="location.html">Location</a>
+
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Gallery Collection</h1>
+
+<p>
+Discover the breathtaking beauty of Cambugahay Falls,
+one of the most famous tourist destinations in Siquijor.
+Enjoy crystal-clear waters, lush greenery, and unforgettable adventures.
+</p>
+
+<button onclick="document.querySelector('.gallery-section').scrollIntoView()">
+Explore Photos
+</button>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery-section">
+
+<div class="gallery-title">
+<h2>Photo Gallery</h2>
+<p>Moments captured at Cambugahay Falls</p>
+</div>
+
+<div class="gallery">
+
+<div class="card">
+<img src="img/a.jpg" onclick="openLightbox(0)">
+<div class="overlay">
+<h3>Main Falls View</h3>
+</div>
+</div>
+
+<div class="card">
+<img src="img/b.jpg" onclick="openLightbox(1)">
+<div class="overlay">
+<h3>Crystal Clear Water</h3>
+</div>
+</div>
+
+<div class="card">
+<img src="img/c.jpg" onclick="openLightbox(2)">
+<div class="overlay">
+<h3>Tropical Nature</h3>
+</div>
+</div>
+
+<div class="card">
+<img src="img/d.jpg" onclick="openLightbox(3)">
+<div class="overlay">
+<h3>Adventure Area</h3>
+</div>
+</div>
+
+<div class="card">
+<img src="img/8.jpg" onclick="openLightbox(4)">
+<div class="overlay">
+<h3>Top Scenic View</h3>
+</div>
+</div>
+
+<div class="card">
+<img src="img/a.jpg" onclick="openLightbox(0)">
+<div class="overlay">
+<h3>Tourist Spot</h3>
+</div>
+</div>
+
+<div class="card">
+<img src="img/b.jpg" onclick="openLightbox(1)">
+<div class="overlay">
+<h3>Natural Beauty</h3>
+</div>
+</div>
+
+<div class="card">
+<img src="img/c.jpg" onclick="openLightbox(2)">
+<div class="overlay">
+<h3>Water Paradise</h3>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+
+<span class="close" onclick="closeLightbox()">
+&times;
+</span>
+
+<span class="prev" onclick="prevImage()">
+❮
+</span>
+
+<img id="lightbox-img">
+
+<span class="next" onclick="nextImage()">
+❯
+</span>
+
+</div>
+
+<footer>
+© 2026 Cambugahay Falls | Siquijor Tourism Website
+</footer>
+
+<script>
+
+const images=[
+'img/a.jpg',
+'img/b.jpg',
+'img/c.jpg',
+'img/d.jpg',
+'img/8.jpg'
+];
+
+let current=0;
+
+function openLightbox(index){
+
+current=index;
+
+document.getElementById('lightbox').style.display='flex';
+
+document.getElementById('lightbox-img').src=images[current];
+
+}
+
+function closeLightbox(){
+
+document.getElementById('lightbox').style.display='none';
+
+}
+
+function nextImage(){
+
+current++;
+
+if(current>=images.length){
+current=0;
+}
+
+document.getElementById('lightbox-img').src=images[current];
+
+}
+
+function prevImage(){
+
+current--;
+
+if(current<0){
+current=images.length-1;
+}
+
+document.getElementById('lightbox-img').src=images[current];
+
+}
+
+function toggleMenu(){
+
+document.getElementById('menu').classList.toggle('show');
+
+}
+
+</script>
+
+</body>
+</html>
